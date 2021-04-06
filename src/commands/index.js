@@ -53,6 +53,7 @@ class FtpCommands {
     }
 
     if (this.whitelist.length > 0 && !_.includes(this.whitelist, command.directive)) {
+      this.connection.log.warn({ command }, 'Command not whitelisted');
       return this.connection.reply(502, 'Command not whitelisted');
     }
 
