@@ -44,8 +44,7 @@ module.exports = {
           }
         });
         this.connector.socket.once('end', () => {
-          if (stream.listenerCount('close')) stream.emit('close');
-          else stream.end();
+          stream.end();
           resolve();
         });
         this.connector.socket.once('error', destroyConnection(stream, reject));
