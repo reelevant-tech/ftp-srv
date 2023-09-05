@@ -33,7 +33,7 @@ module.exports = {
 
       const streamPromise = new Promise((resolve, reject) => {
         stream.once('error', destroyConnection(this.connector.socket, reject));
-        stream.once('finish', () => resolve());
+        stream.once('close', () => resolve());
       });
 
       const socketPromise = new Promise((resolve, reject) => {
